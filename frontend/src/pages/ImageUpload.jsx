@@ -10,14 +10,31 @@ function Upload() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
     if (!selectedFile) {
       alert('Please select an image to upload!');
       return;
     }
 
-    setResponseMessage(
-      'Skin disease detected: Healthy Skin (This is a placeholder response)'
-    );
+    const formData = new FormData();
+    formData.append('image', selectedFile);
+
+    try {
+      const response = await fetch('http://127.0.0.1:5000/upload', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      setResponseMessage(`Skin disease detected: ${data.label}`);
+    } catch (error) {
+      console.error('Error:', error);
+      setResponseMessage('An error occurred while uploading the image.');
+    }
   };
 
   return (
