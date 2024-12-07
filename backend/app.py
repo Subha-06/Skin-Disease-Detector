@@ -9,7 +9,7 @@ app = Flask(__name__)
 CORS(app)  # Enable cross-origin requests
 
 # Load the MobileNet V2 model from TensorFlow Hub
-MODEL_URL = "https://tfhub.dev/google/imagenet/mobilenet_v2_100_224/classification/5"
+MODEL_URL = "https://tfhub.dev/google/tf2-preview/mobilenet_v2/classification/4"
 model = hub.load(MODEL_URL)
 
 # Load ImageNet labels
@@ -24,25 +24,27 @@ def preprocess_image(image):
     image = tf.expand_dims(image, axis=0)  # Add batch dimension
     return image
 
-
 @app.route('/upload', methods=['POST'])
 def upload_image():
-    if 'image' not in request.files:
-        return jsonify({'error': 'No image file uploaded'}), 400
+    try:
+        if 'image' not in request.files:
+            return jsonify({'error': 'No image file uploaded'}), 400
 
-    # Load the image
-    image_file = request.files['image']
-    img = Image.open(image_file.stream).convert('RGB')
-    
-    # Preprocess the image
-    processed_image = preprocess_image(img)
+        # Load the image
+        image_file = request.files['image']
+        img = Image.open(image_file.stream).convert('RGB')
+        
+        # Preprocess the image
+        processed_image = preprocess_image(img)
 
-    # Perform inference
-    predictions = model(processed_image)
-    predicted_label_idx = np.argmax(predictions.numpy())
-    predicted_label = labels[predicted_label_idx]
+        # Perform inference
+        predictions = model(processed_image)
+        predicted_label_idx = np.argmax(predictions.numpy())
+        predicted_label = labels[predicted_label_idx]
 
-    return jsonify({'label': predicted_label})
+        return jsonify({'label': predicted_label})
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
     app.run(debug=True)
