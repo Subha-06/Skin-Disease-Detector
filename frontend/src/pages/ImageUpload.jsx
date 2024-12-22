@@ -20,7 +20,7 @@ function Upload() {
     formData.append('image', selectedFile);
 
     try {
-      const response = await fetch('http://127.0.0.1:5000/upload', {
+      const response = await fetch('http://127.0.0.1:5000/predict', {
         method: 'POST',
         body: formData,
       });
@@ -30,7 +30,7 @@ function Upload() {
       }
 
       const data = await response.json();
-      setResponseMessage(`Skin disease detected: ${data.label}`);
+      setResponseMessage(`Skin disease detected: ${data.predicted_class}`);
     } catch (error) {
       console.error('Error:', error);
       setResponseMessage('An error occurred while uploading the image.');
