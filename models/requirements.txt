@@ -1,0 +1,9 @@
+torch
+numpy
+matplotlib
+opencv-python
+albumentations
+albumentations[imgaug]
+sklearn
+scikit-learn
+torchvision
