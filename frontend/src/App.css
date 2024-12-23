@@ -1,78 +1,360 @@
-/* General Styles */
-body {
-  font-family: 'Arial', sans-serif;
+/* Homepage Styles */
+.homepage {
+  max-width: 1000px; 
+  margin: 70px auto 0 auto; 
+  padding: 20px;
+  text-align: center;
+}
+
+.homepage-header {
+  background-color: #ffeb3b;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 100%; 
+}
+
+.homepage-header h1 {
   margin: 0;
-  padding: 0;
-  background-color: white;
-  color: navy;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  font-size: 2.5rem;
+  color: #333;
 }
 
-/* Header */
-header {
-  background-color: #032340;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 40px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+.homepage-header p {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  color: #555;
 }
 
-h1 {
-  font-size: 28px;
-  margin: 0;
-}
-
-.nav-menu {
-  list-style: none;
-  display: flex;
-  gap: 30px;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-menu li {
-  display: inline;
-}
-
-.nav-menu a {
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  padding: 10px 15px;
+.upload-button {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
   border-radius: 5px;
-  transition: background-color 0.3s;
+  cursor: pointer;
+  margin-top: 20px;
 }
 
-.nav-menu a:hover {
-  background-color: #10416e;
+.upload-button:hover {
+  background-color: #555;
 }
 
-/* Main Content */
-main {
-  display: flex; /* Flexbox for centering content */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  flex-grow: 1; /* Take up remaining height */
-  padding: 20px;
-  margin-top: 100px; /* Push below the fixed header */
+.homepage-section,
+.homepage-benefits {
+  margin-top: 30px;
 }
 
-.content {
-  text-align: center; /* Center text and buttons inside */
-  width: 100%;
+.homepage-section h2,
+.homepage-benefits h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.homepage-section p,
+.homepage-benefits ul {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+.homepage-benefits ul {
+  list-style: disc;
+  padding-left: 20px;
+  text-align: left;
+  margin: 0 auto;
   max-width: 600px;
-  padding: 20px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Optional for emphasis */
-  border-radius: 8px; /* Optional rounded corners */
-  background-color: white; /* Background color for content box */
 }
+
+.homepage-benefits ul li {
+  margin-bottom: 10px; 
+}
+
+/* Enhanced Box Container with Accent Border */
+.box-container {
+  background-color: #fff; 
+  border-left: 6px solid #ffeb3b; 
+  border-radius: 8px;
+  padding: 20px 30px;
+  margin: 20px auto; 
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1); 
+  max-width: 800px;
+}
+
+/* Section Headers */
+.box-container h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #333;
+  border-bottom: 2px solid #ffeb3b;
+  display: inline-block; 
+  padding-bottom: 5px;
+}
+
+.box-container p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.box-container ul {
+  padding-left: 20px;
+  list-style: none;
+}
+
+.box-container ul li {
+  position: relative;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+.box-container ul li::before {
+  content: "•"; 
+  position: absolute;
+  left: -15px;
+  color: #ffeb3b; 
+  font-size: 1.5rem;
+}
+
+
+/* Upload Page Styles */
+.upload-page {
+  max-width: 900px;
+  margin: 100px auto 0 auto;
+  text-align: center;
+}
+
+.upload-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.upload-container {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.upload-box {
+  border: 2px dashed #ddd;
+  border-radius: 10px;
+  padding: 30px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.upload-browse-button {
+  background-color: #ffeb3b;
+  color: #333;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+.upload-browse-button:hover {
+  background-color: #ffcc00;
+}
+
+.upload-submit-button {
+  background-color: #ffeb3b;
+  color: #333;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.upload-submit-button:hover {
+  background-color: #ffcc00;
+}
+
+/* Response Message Styles */
+.response-message {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  max-width: 600px;
+  margin: 20px auto 0;
+}
+
+.success-message {
+  background-color: #d4edda;
+  color: #155724; 
+  border: 1px solid #c3e6cb;
+}
+
+.error-message {
+  background-color: #f8d7da; 
+  color: #721c24; 
+  border: 1px solid #f5c6cb; 
+}
+
+/* Diseases Page Styles */
+.diseases-page {
+  max-width: 1000px;
+  margin: 100px auto; 
+  text-align: center;
+}
+
+/* Header Section */
+.diseases-header {
+  background-color: #ffeb3b;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.diseases-header h1 {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.diseases-header p {
+  font-size: 1.4rem;
+  color: #555;
+}
+
+/* Content Section */
+.diseases-content {
+  margin-top: 30px;
+  padding: 30px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.diseases-content .disease-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.diseases-content .disease-card h2 {
+  color: #333;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.diseases-content .disease-card p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+/* List Styling */
+.diseases-content ul {
+  list-style: none; 
+  padding: 0;
+}
+
+.diseases-content ul li {
+  margin-bottom: 20px;
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.8;
+}
+
+/* Card Enhancements */
+.diseases-content .disease-card ul {
+  list-style: disc;
+  padding-left: 20px; 
+}
+
+.diseases-content .disease-card ul li {
+  margin-bottom: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .diseases-page {
+    margin: 50px 20px; 
+  }
+
+  .diseases-header h1 {
+    font-size: 2.2rem;
+  }
+
+  .diseases-header p {
+    font-size: 1.2rem;
+  }
+
+  .diseases-content .disease-card h2 {
+    font-size: 1.6rem;
+  }
+
+  .diseases-content .disease-card p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Disease Cards Container */
+.disease-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+/* Disease Card */
+.disease-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.disease-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.disease-card h2 {
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.disease-card p {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Expanded Card */
+.disease-card.expanded {
+  grid-column: span 2;
+  padding: 30px;
+  background-color: #f9f9f9;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
