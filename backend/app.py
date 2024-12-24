@@ -13,22 +13,6 @@ from torchvision import models
 app = Flask(__name__)
 CORS(app)  # Enable cross-origin requests
 
-# # Load the MobileNet V2 model from TensorFlow Hub
-# MODEL_URL = "https://tfhub.dev/google/tf2-preview/mobilenet_v2/classification/4"
-# model = hub.load(MODEL_URL)
-
-# Load ImageNet labels
-with open("imagenet_classes.txt", "r") as f:
-    labels = [line.strip() for line in f.readlines()]
-
-def preprocess_image(image):
-    """Resize and normalize the image for MobileNet."""
-    image = image.resize((224, 224))  # Resize to 224x224
-    image = np.array(image) / 255.0  # Normalize to [0, 1]
-    image = tf.convert_to_tensor(image, dtype=tf.float32)  # Ensure dtype is tf.float32
-    image = tf.expand_dims(image, axis=0)  # Add batch dimension
-    return image
-
 class CustomModel(nn.Module):
     def __init__(self, num_classes=7):
         super(CustomModel, self).__init__()
